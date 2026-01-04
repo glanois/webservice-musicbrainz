@@ -24,7 +24,7 @@ has 'query_params';
 has offset => 0;
 has debug => sub { $ENV{MUSICBRAINZ_DEBUG} || 0 };;
 
-our $VERSION = '1.0';
+our $VERSION = '1.1';
 
 binmode STDOUT, ":encoding(UTF-8)";
 
