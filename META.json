@@ -4,7 +4,7 @@
       "Bob Faist <bob.faist@gmail.com>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4231",
+   "generated_by" : "Module::Build version 0.4234",
    "keywords" : [
       "musicbrainz",
       "webservice"
@@ -25,6 +25,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Mojo::UserAgent::Role::Retry" : "0.002",
             "Mojolicious" : "7.13",
             "perl" : "v5.10.1"
          }
@@ -37,7 +38,7 @@
       },
       "WebService::MusicBrainz::Request" : {
          "file" : "lib/WebService/MusicBrainz/Request.pm",
-         "version" : "1.0"
+         "version" : "1.1"
       }
    },
    "release_status" : "stable",
@@ -50,5 +51,5 @@
       }
    },
    "version" : "v1.0.7",
-   "x_serialization_backend" : "JSON::PP version 4.06"
+   "x_serialization_backend" : "JSON::PP version 4.16"
 }
