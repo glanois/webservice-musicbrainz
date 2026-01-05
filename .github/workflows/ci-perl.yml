@@ -23,7 +23,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install deps
-        run: cpanm --notest --installdeps .
+        run: |
+          # First generate MYMETA.json / MYMETA.yml
+          perl Makefile.PL
+          # Then let cpanm read the fresh metadata
+          cpanm --quiet --notest --installdeps .
 
       - name: Build & test
         run: |
