@@ -1,4 +1,4 @@
-name: Perl CPAN-style CI
+name: Perl CI - Build.PL based
 
 on: [push, pull_request]
 
@@ -22,9 +22,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Install Module::Build (required for Build.PL)
-        run: cpanm --quiet --notest Module::Build@~0.42
 
       - name: Generate metadata & install dependencies
         run: |
