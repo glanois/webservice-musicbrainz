@@ -28,6 +28,7 @@ jobs:
           # In the future, consider using cpanfile instead,
           # so you can get rid of this step.
           perl Makefile.PL
+          make
 
           # Now install the dependencies.
           cpanm --notest --installdeps .
