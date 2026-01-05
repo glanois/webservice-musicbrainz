@@ -28,8 +28,11 @@ jobs:
           # In the future, consider using cpanfile instead,
           # so you can get rid of this step.
           perl Makefile.PL
-          make
-
+          echo "=== MYMETA.json contents (search for Retry) ==="
+          grep -i -C 3 Retry MYMETA.json || echo "→ 'Mojo::UserAgent::Role::Retry' NOT FOUND in MYMETA.json"
+          echo ""
+          echo "=== What cpanm thinks the dependencies are ==="
+          cpanm --showdeps .
           # Now install the dependencies.
           cpanm --notest --installdeps .
 
