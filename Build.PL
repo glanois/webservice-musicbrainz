@@ -6,7 +6,8 @@ my $build = Module::Build->new
      license  => 'perl',
      requires => {
                   'perl'          => '5.10.1',
-                  'Mojolicious'   => '7.13'
+                  'Mojolicious'   => '7.13',
+                  'Mojo::UserAgent::Role::Retry' => '0.002',
                  },
      configure_requires => {
         'Module::Build' => '0.42'
