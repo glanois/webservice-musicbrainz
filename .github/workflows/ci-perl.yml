@@ -20,17 +20,18 @@ jobs:
     container: perldocker/perl-tester:${{ matrix.perl }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Install deps
-        run: |
-          # First generate MYMETA.json / MYMETA.yml
-          perl Makefile.PL
-          # Then let cpanm read the fresh metadata
-          cpanm --quiet --notest --installdeps .
+      - name: Install Module::Build (required for Build.PL)
+        run: cpanm --quiet --notest Module::Build@~0.42
 
-      - name: Build & test
+      - name: Generate metadata & install dependencies
         run: |
-          perl Makefile.PL
-          make
-          prove -lr --timer t/
+          perl Build.PL
+          ./Build installdeps --quiet --notest --all   # --all = runtime + test + configure requires
+
+      - name: Build & run tests
+        run: |
+          ./Build
+          prove -blvr --timer --color t/
